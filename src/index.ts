@@ -1,17 +1,28 @@
-import express from 'express';
-import dotenv from 'dotenv';
-dotenv.config();
+import express from 'express'
+import patientRouter from './routes/patientsRouter'
+import diagnosesRouter from './routes/diagnosesRouter'
+import dotenv from 'dotenv'
+import cors from 'cors'
+const path = require('path')
 
-const app = express();
+dotenv.config()
 
-app.get('/api', function(req, res) {
-    res.send('Example');
-});
+const app = express()
+app.use(cors())
+app.use(express.json())
 
-app.use(express.static('public'));
+app.get('/api', function (req, res) {
+  res.send('Example')
+})
 
-const port = process.env.PORT || 3000;
+app.use(express.static('public'))
 
-app.listen(port);
+app.use('/api/patients', patientRouter)
 
-console.log(`Server started on port ${port}`);
+app.use('/api/diagnoses', diagnosesRouter)
+
+const port = process.env.PORT || 3000
+
+app.listen(port)
+
+console.log(`Server started on port ${port}`)
