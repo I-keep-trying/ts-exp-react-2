@@ -38,7 +38,7 @@ const App: React.FC<{ title: string }> = ({ title }) => {
   return (
     <div>
       <Router>
-        <Menu fixed="top">
+        <Menu fixed="top" inverted>
           <Container fluid>
             <Menu.Item header>
               <Icon name="heartbeat" color="teal" size="large" />
