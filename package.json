@@ -11,7 +11,8 @@
     "start": "node build/src/index.js",
     "postinstall": "npm run tsc",
     "start-prod": "tsc && webpack && node build/src/index",
-    "start:watch": "nodemon src/index.ts"
+    "start:watch": "nodemon src/index.ts",
+    "build": "webpack --mode production"
   },
   "author": "",
   "license": "ISC",
